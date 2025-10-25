@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Busca de Leads</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+</head>
+<body>
+
+    <canvas id="animated-bg"></canvas>
+
+    <div class="main-layout"> 
+        
+        <div class="search-container">
+            <form id="search-form">
+                <h2>Painel de Busca</h2>
+
+                <div class="form-group">
+                    <label for="profissao-select">Profissão Principal</label>
+                    <select id="profissao-select" name="profissao">
+                        <option value="">Selecione a profissão...</option>
+                        <option value="medico">Médico(a)</option>
+                        <option value="advogado">Advogado(a)</option>
+                        <option value="dentista">Dentista (Odontologia)</option>
+                        <option value="engenheiro">Engenheiro(a)</option>
+                        <option value="psicologo">Psicólogo(a)</option>
+                        <option value="fisioterapeuta">Fisioterapeuta</option>
+                        <option value="arquiteto">Arquiteto(a)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="especializacao-container" style="display: none;">
+                    <label for="especializacao-select">Especialização</Especialização>
+                    <select id="especializacao-select" name="especializacao">
+                        <option value="">Selecione a especialização...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="estado-select">Estado</label>
+                    <select id="estado-select" name="estado">
+                        <option value="">Selecione o estado...</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocins</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="cidade-container" style="display: none;">
+                    <label for="cidade-select">Cidade</label>
+                    <select id="cidade-select" name="cidade">
+                        <option value="">Selecione a cidade...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipos de Contato (Máx. 2)</label>
+                    <div id="contato-status-message"></div>
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="contato" value="instagram">
+                            <span class="checkbox-custom"></span> Instagram
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="contato" value="whatsapp">
+                            <span class="checkbox-custom"></span> WhatsApp
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="contato" value="website">
+                            <span class="checkbox-custom"></span> Website
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="contato" value="email">
+                            <span class="checkbox-custom"></span> Email
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="contato" value="linkedin">
+                            <span class="checkbox-custom"></span> LinkedIn
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="contato" value="telefone">
+                            <span class="checkbox-custom"></span> Telefone
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="contato" value="empresa">
+                            <span class="checkbox-custom"></span> Empresa
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div> 
+
+        <div class="results-column">
+
+            <div class="query-preview-container">
+                <h2>Termo de Pesquisa</h2>
+                <div id="query-preview-display">
+                    Selecione os filtros para ver a busca...
+                </div>
+                <button type="submit" class="btn-submit" form="search-form">Buscar</button>
+                <div id="status-message"></div>
+            </div>
+
+            <div class="results-container">
+                <h2>Resultados de Buscas</h2>
+                <div id="results-display">
+                    <p class="placeholder-text">Nenhuma busca realizada ainda. <br>Os resultados aparecerão aqui.</p>
+                </div>
+                <button id="clear-results-btn" class="btn-clear-results" style="display: none;">Limpar Resultados</button>
+            </div> 
+
+        </div>
+    </div> <script src="script.js"></script>
+</body>
+</html>
